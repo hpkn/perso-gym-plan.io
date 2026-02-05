@@ -202,9 +202,63 @@
     .equip-img{width:42px;height:42px;min-width:42px;}.equip-img svg{width:32px;height:32px;}
     .equip-guide{grid-template-columns:1fr;}
   }
+
+  /* PIN Lock Screen */
+  .pin-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+  .pin-overlay.hidden{display:none;}
+  .pin-box{text-align:center;width:100%;max-width:320px;padding:20px;}
+  .pin-box h2{font-size:1.5em;margin-bottom:6px;}
+  .pin-box p{color:var(--text2);font-size:.85em;margin-bottom:24px;}
+  .pin-dots{display:flex;gap:14px;justify-content:center;margin-bottom:28px;}
+  .pin-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);transition:all .2s;}
+  .pin-dot.filled{background:var(--accent);border-color:var(--accent);}
+  .pin-dot.error{border-color:var(--red);background:var(--red);animation:shake .4s;}
+  .pin-dot.success{border-color:var(--green);background:var(--green);}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+  .pin-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:260px;margin:0 auto;}
+  .pin-key{width:100%;aspect-ratio:1.3;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1.5em;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+  .pin-key:hover{background:var(--surface2);border-color:var(--accent);}
+  .pin-key:active{background:rgba(108,92,231,.2);transform:scale(.95);}
+  .pin-key.fn{font-size:.85em;color:var(--text2);}
+  .pin-msg{font-size:.82em;margin-top:16px;min-height:20px;color:var(--red);}
+  .pin-change-btn{margin-top:20px;background:none;border:1px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:8px;font-size:.78em;font-family:inherit;cursor:pointer;transition:all .2s;}
+  .pin-change-btn:hover{border-color:var(--accent);color:var(--text);}
 </style>
 </head>
 <body>
+
+<!-- PIN LOCK SCREEN -->
+<div class="pin-overlay" id="pinOverlay">
+  <div class="pin-box">
+    <div style="font-size:2.5em;margin-bottom:10px;">🔒</div>
+    <h2 id="pinTitle">Enter PIN</h2>
+    <p id="pinSubtitle">Enter your 4-digit PIN to unlock</p>
+    <div class="pin-dots" id="pinDots">
+      <div class="pin-dot" id="dot0"></div>
+      <div class="pin-dot" id="dot1"></div>
+      <div class="pin-dot" id="dot2"></div>
+      <div class="pin-dot" id="dot3"></div>
+    </div>
+    <div class="pin-pad">
+      <button class="pin-key" onclick="pinPress('1')">1</button>
+      <button class="pin-key" onclick="pinPress('2')">2</button>
+      <button class="pin-key" onclick="pinPress('3')">3</button>
+      <button class="pin-key" onclick="pinPress('4')">4</button>
+      <button class="pin-key" onclick="pinPress('5')">5</button>
+      <button class="pin-key" onclick="pinPress('6')">6</button>
+      <button class="pin-key" onclick="pinPress('7')">7</button>
+      <button class="pin-key" onclick="pinPress('8')">8</button>
+      <button class="pin-key" onclick="pinPress('9')">9</button>
+      <button class="pin-key fn" onclick="pinClear()">Clear</button>
+      <button class="pin-key" onclick="pinPress('0')">0</button>
+      <button class="pin-key fn" onclick="pinBackspace()">⌫</button>
+    </div>
+    <div class="pin-msg" id="pinMsg"></div>
+  </div>
+</div>
+
+<!-- APP (hidden until unlocked) -->
+<div id="appWrapper" style="display:none;">
 <div class="install-banner" id="installBanner">
 <div class="toast" id="toast"></div>
   <p>📲 Install as app for quick access</p>
@@ -610,13 +664,196 @@
 
     <div class="data-section">
       <h3 style="font-size:.95em;margin-bottom:8px;color:var(--red);">⚠️ Danger Zone</h3>
-      <button class="data-btn danger" onclick="resetAll()">🗑️ Reset All Progress</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="data-btn" onclick="changePin()">🔒 Change PIN</button>
+        <button class="data-btn danger" onclick="resetAll()">🗑️ Reset All Progress</button>
+      </div>
     </div>
   </div>
 
 </div>
+</div><!-- /appWrapper -->
 
 <script>
+// ==================== PIN LOCK ====================
+const PIN_KEY = 'gym12w2_pin';
+let pinBuffer = '';
+let pinMode = 'unlock'; // 'unlock', 'setup', 'confirm', 'change_old', 'change_new', 'change_confirm'
+let pinTemp = '';
+let pinAttempts = 0;
+const MAX_ATTEMPTS = 5;
+
+function getStoredPin() { return localStorage.getItem(PIN_KEY); }
+
+function hashPin(pin) {
+  // Simple hash — not crypto-grade but fine for a fitness app PIN
+  let h = 0;
+  const s = 'gym' + pin + 'plan';
+  for (let i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+  return 'h' + Math.abs(h).toString(36);
+}
+
+function initPin() {
+  const stored = getStoredPin();
+  if (!stored) {
+    pinMode = 'setup';
+    document.getElementById('pinTitle').textContent = 'Create a PIN';
+    document.getElementById('pinSubtitle').textContent = 'Choose a 4-digit PIN to lock your app';
+  } else {
+    pinMode = 'unlock';
+    document.getElementById('pinTitle').textContent = 'Enter PIN';
+    document.getElementById('pinSubtitle').textContent = 'Enter your 4-digit PIN to unlock';
+  }
+  updateDots();
+}
+
+function pinPress(digit) {
+  if (pinBuffer.length >= 4) return;
+  pinBuffer += digit;
+  updateDots();
+
+  // Vibrate feedback if available
+  if (navigator.vibrate) navigator.vibrate(30);
+
+  if (pinBuffer.length === 4) {
+    setTimeout(() => handlePinComplete(), 200);
+  }
+}
+
+function pinBackspace() {
+  pinBuffer = pinBuffer.slice(0, -1);
+  updateDots();
+}
+
+function pinClear() {
+  pinBuffer = '';
+  updateDots();
+}
+
+function updateDots() {
+  for (let i = 0; i < 4; i++) {
+    const dot = document.getElementById('dot' + i);
+    dot.className = 'pin-dot' + (i < pinBuffer.length ? ' filled' : '');
+  }
+}
+
+function pinError(msg) {
+  document.getElementById('pinMsg').textContent = msg;
+  for (let i = 0; i < 4; i++) document.getElementById('dot' + i).className = 'pin-dot error';
+  setTimeout(() => { pinBuffer = ''; updateDots(); document.getElementById('pinMsg').textContent = ''; }, 800);
+}
+
+function pinSuccess() {
+  for (let i = 0; i < 4; i++) document.getElementById('dot' + i).className = 'pin-dot success';
+}
+
+function unlockApp() {
+  pinSuccess();
+  setTimeout(() => {
+    document.getElementById('pinOverlay').classList.add('hidden');
+    document.getElementById('appWrapper').style.display = 'block';
+  }, 400);
+}
+
+function handlePinComplete() {
+  const pin = pinBuffer;
+
+  if (pinMode === 'setup') {
+    pinTemp = pin;
+    pinMode = 'confirm';
+    pinBuffer = '';
+    document.getElementById('pinTitle').textContent = 'Confirm PIN';
+    document.getElementById('pinSubtitle').textContent = 'Enter the same PIN again';
+    updateDots();
+    return;
+  }
+
+  if (pinMode === 'confirm') {
+    if (pin === pinTemp) {
+      localStorage.setItem(PIN_KEY, hashPin(pin));
+      unlockApp();
+    } else {
+      pinMode = 'setup';
+      pinTemp = '';
+      pinError("PINs didn't match — try again");
+      document.getElementById('pinTitle').textContent = 'Create a PIN';
+      document.getElementById('pinSubtitle').textContent = 'Choose a 4-digit PIN to lock your app';
+    }
+    return;
+  }
+
+  if (pinMode === 'unlock') {
+    if (hashPin(pin) === getStoredPin()) {
+      pinAttempts = 0;
+      unlockApp();
+    } else {
+      pinAttempts++;
+      if (pinAttempts >= MAX_ATTEMPTS) {
+        pinError(`Too many attempts. Refresh to retry.`);
+        document.querySelectorAll('.pin-key').forEach(k => k.disabled = true);
+      } else {
+        pinError(`Wrong PIN (${MAX_ATTEMPTS - pinAttempts} attempts left)`);
+      }
+    }
+    return;
+  }
+
+  if (pinMode === 'change_old') {
+    if (hashPin(pin) === getStoredPin()) {
+      pinBuffer = '';
+      pinMode = 'change_new';
+      document.getElementById('pinTitle').textContent = 'New PIN';
+      document.getElementById('pinSubtitle').textContent = 'Enter your new 4-digit PIN';
+      updateDots();
+    } else {
+      pinError('Wrong current PIN');
+    }
+    return;
+  }
+
+  if (pinMode === 'change_new') {
+    pinTemp = pin;
+    pinBuffer = '';
+    pinMode = 'change_confirm';
+    document.getElementById('pinTitle').textContent = 'Confirm New PIN';
+    document.getElementById('pinSubtitle').textContent = 'Enter the new PIN again';
+    updateDots();
+    return;
+  }
+
+  if (pinMode === 'change_confirm') {
+    if (pin === pinTemp) {
+      localStorage.setItem(PIN_KEY, hashPin(pin));
+      pinSuccess();
+      setTimeout(() => {
+        document.getElementById('pinOverlay').classList.add('hidden');
+        showToast('🔒 PIN changed!');
+      }, 400);
+    } else {
+      pinMode = 'change_new';
+      pinTemp = '';
+      pinError("PINs didn't match — try again");
+      document.getElementById('pinTitle').textContent = 'New PIN';
+      document.getElementById('pinSubtitle').textContent = 'Enter your new 4-digit PIN';
+    }
+    return;
+  }
+}
+
+function changePin() {
+  pinBuffer = '';
+  pinTemp = '';
+  pinMode = 'change_old';
+  document.getElementById('pinTitle').textContent = 'Current PIN';
+  document.getElementById('pinSubtitle').textContent = 'Enter your current PIN first';
+  document.getElementById('pinMsg').textContent = '';
+  updateDots();
+  document.getElementById('pinOverlay').classList.remove('hidden');
+  document.querySelectorAll('.pin-key').forEach(k => k.disabled = false);
+}
+
+initPin();
+
 // ==================== SVG EQUIPMENT ICONS ====================
 const SVG = {
   bench: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
