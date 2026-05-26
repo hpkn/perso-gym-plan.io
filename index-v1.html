@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#6c5ce7">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Mon–Fri Recomp · 12-Week Plan</title>
+<title>3-Month Workout Checklist</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
   :root {
@@ -171,67 +171,6 @@
   .rehab-item strong{font-size:.88em;}
   .rehab-item span{font-size:.78em;color:var(--text2);}
 
-  /* Targets tab */
-  .baseline-grid{display:grid;gap:8px;margin-bottom:8px;}
-  .baseline-row{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
-  .baseline-row label{font-size:.82em;color:var(--text2);font-weight:500;}
-  .baseline-row input{width:100px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);padding:7px 10px;font-family:inherit;font-size:.85em;text-align:right;}
-  .baseline-row input:focus{outline:none;border-color:var(--accent);}
-  .baseline-row .dual{display:flex;gap:5px;align-items:center;}
-  .baseline-row .dual input{width:70px;}
-  .baseline-row .dual span{color:var(--text2);font-size:.85em;}
-
-  .target-table{background:var(--surface);border:1px solid var(--border);border-radius:11px;overflow:hidden;}
-  .target-header,.target-row{display:grid;grid-template-columns:1.4fr .8fr 1fr .9fr .4fr;padding:9px 12px;gap:6px;font-size:.78em;align-items:center;}
-  .target-header{background:var(--surface2);font-weight:700;color:var(--text2);font-size:.7em;text-transform:uppercase;letter-spacing:.5px;}
-  .target-row{border-top:1px solid rgba(45,48,64,.5);}
-  .target-row .metric{font-weight:600;color:var(--text);}
-  .target-row .start,.target-row .now{color:var(--text2);}
-  .target-row .goal{color:var(--accent2);font-weight:600;}
-  .target-row .check.hit{color:var(--green);font-size:1.1em;}
-  .target-row .check.miss{color:var(--text2);}
-
-  .weekly-log{display:grid;gap:6px;margin-bottom:10px;}
-  .week-row{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:8px 12px;display:grid;grid-template-columns:.7fr 1fr 1fr .9fr;gap:8px;align-items:center;font-size:.78em;}
-  .week-row.today{border-color:var(--accent);background:rgba(108,92,231,.08);}
-  .week-row.past{opacity:.85;}
-  .week-row .wlabel{font-weight:600;color:var(--text);}
-  .week-row .wdate{font-size:.7em;color:var(--text2);}
-  .week-row input{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:5px 8px;width:100%;font-family:inherit;font-size:.85em;text-align:center;}
-  .week-row input:focus{outline:none;border-color:var(--accent);}
-  .week-row input.lost{border-color:var(--green);color:var(--green);}
-  .week-row input.gained{border-color:var(--orange);}
-  .week-row .delta{font-size:.7em;color:var(--text2);text-align:center;}
-
-  .pr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:10px;}
-  .pr-card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px;}
-  .pr-card h4{font-size:.9em;margin-bottom:10px;}
-  .pr-card .pr-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:.78em;color:var(--text2);}
-  .pr-card .pr-row input{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:5px 8px;font-family:inherit;font-size:.85em;text-align:right;}
-  .pr-card .pr-row .dual{display:flex;gap:5px;align-items:center;}
-  .pr-card .pr-row .dual input{width:65px;}
-  .pr-progress{height:6px;background:var(--surface2);border-radius:6px;margin-top:10px;overflow:hidden;position:relative;}
-  .pr-progress::after{content:attr(data-label);position:absolute;right:0;top:8px;font-size:.7em;color:var(--text2);}
-  .pr-progress .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:6px;transition:width .4s;}
-
-  .photo-checkpoints{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:8px;}
-  .photo-cb{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .2s;}
-  .photo-cb:hover{border-color:var(--accent);}
-  .photo-cb.done{background:rgba(0,184,148,.15);border-color:var(--green);}
-  .photo-cb .icon{font-size:1.2em;}
-  .photo-cb .lbl{font-size:.72em;color:var(--text2);font-weight:600;margin-top:3px;}
-  .photo-cb.done .lbl{color:var(--green);}
-
-  .milestone-list{display:grid;gap:8px;margin-bottom:10px;}
-  .milestone-card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .2s;}
-  .milestone-card:hover{border-color:var(--accent);}
-  .milestone-card.done{background:rgba(0,184,148,.08);border-color:var(--green);}
-  .milestone-card .mcb{width:22px;height:22px;min-width:22px;border-radius:6px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-top:1px;color:transparent;font-size:.85em;}
-  .milestone-card.done .mcb{background:var(--green);border-color:var(--green);color:#fff;}
-  .milestone-card .minfo h4{font-size:.92em;margin-bottom:3px;}
-  .milestone-card .minfo p{font-size:.78em;color:var(--text2);line-height:1.45;}
-  .milestone-card .minfo .crits{margin-top:6px;font-size:.74em;color:var(--accent2);}
-
   .avoid-list{margin-bottom:10px;}
   .avoid-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:.84em;color:var(--text2);border-bottom:1px solid rgba(45,48,64,.3);}
   .avoid-item:last-child{border-bottom:none;}
@@ -330,13 +269,12 @@
 </div>
 <div class="container">
   <div class="hero">
-    <h1>💪 Recomp · Mon–Fri</h1>
-    <p>May 25 – Aug 14, 2026 · 12 Weeks · 60 min/day · Muscle + Abs + Fat Loss</p>
+    <h1>☑️ Daily Workout Checklist</h1>
+    <p>Feb 6 – May 1, 2026 · 12 Weeks · Check off every set</p>
   </div>
 
   <div class="tabs-row">
     <button class="tab-btn active" onclick="switchTab('workout')">📋 Workout</button>
-    <button class="tab-btn" onclick="switchTab('targets')">🎯 Targets</button>
     <button class="tab-btn" onclick="switchTab('nutrition')">🍽️ Nutrition</button>
     <button class="tab-btn" onclick="switchTab('recovery')">🔄 Recovery</button>
     <button class="tab-btn" onclick="switchTab('guide')">🏋️ Equipment</button>
@@ -358,209 +296,84 @@
       <button id="prevBtn" onclick="changeWeek(-1)">◀</button>
       <div class="week-info">
         <div><span class="wk" id="weekTitle">Week 1</span><span class="phase-badge ph1" id="phaseBadge">Phase 1</span></div>
-        <div class="dates" id="weekDates">May 25 – May 31</div>
+        <div class="dates" id="weekDates">Feb 6 – Feb 12</div>
       </div>
       <button id="nextBtn" onclick="changeWeek(1)">▶</button>
     </div>
     <div id="daysList"></div>
   </div>
 
-  <!-- ========== TARGETS TAB ========== -->
-  <div class="tab-content" id="tab-targets">
-    <div class="tip-header">
-      <h2>🎯 Your 12-Week Targets</h2>
-      <p>Concrete, verifiable numbers. Set your baseline in Week 1, log weight + waist every Sunday, hit the milestones at the end of each phase.</p>
-    </div>
-
-    <h3 class="tip-section-title">📌 Baseline (set this in Week 1)</h3>
-    <div class="baseline-grid">
-      <div class="baseline-row"><label>Weight (kg)</label><input type="number" step="0.1" id="b_weight" placeholder="85" onchange="saveBaseline()"></div>
-      <div class="baseline-row"><label>Waist at navel (cm)</label><input type="number" step="0.1" id="b_waist" placeholder="88" onchange="saveBaseline()"></div>
-      <div class="baseline-row"><label>Bench best set (kg × reps)</label><div class="dual"><input type="number" step="0.5" id="b_bench_w" placeholder="60" onchange="saveBaseline()"><span>×</span><input type="number" id="b_bench_r" placeholder="8" onchange="saveBaseline()"></div></div>
-      <div class="baseline-row"><label>Squat best set (kg × reps)</label><div class="dual"><input type="number" step="0.5" id="b_squat_w" placeholder="80" onchange="saveBaseline()"><span>×</span><input type="number" id="b_squat_r" placeholder="8" onchange="saveBaseline()"></div></div>
-      <div class="baseline-row"><label>Deadlift best set (kg × reps)</label><div class="dual"><input type="number" step="0.5" id="b_dead_w" placeholder="100" onchange="saveBaseline()"><span>×</span><input type="number" id="b_dead_r" placeholder="5" onchange="saveBaseline()"></div></div>
-      <div class="baseline-row"><label>Max pull-ups (reps)</label><input type="number" id="b_pull" placeholder="5" onchange="saveBaseline()"></div>
-    </div>
-
-    <h3 class="tip-section-title">🏁 Week-12 Targets (vs your baseline)</h3>
-    <div class="target-table" id="targetTable">
-      <div class="target-header"><span>Metric</span><span>Start</span><span>Target</span><span>Now</span><span>✓</span></div>
-      <!-- rows injected by JS -->
-    </div>
-    <div class="tip-highlight" style="margin-top:12px;">
-      <strong>Recomp math:</strong> Light deficit + heavy lifting + 180g protein = lose ~0.3 kg fat/week while gaining ~0.15 kg muscle/week. Scale weight only drops slowly. Trust the waist + photos.
-    </div>
-
-    <h3 class="tip-section-title">📅 Weekly Check-In · Every Sunday Morning (fasted, after bathroom)</h3>
-    <div class="weekly-log" id="weeklyLog"><!-- rows injected by JS --></div>
-
-    <h3 class="tip-section-title">🏋️ Strength PRs · Update Whenever You Hit a New Best</h3>
-    <div class="pr-grid">
-      <div class="pr-card">
-        <h4>💪 Bench Press</h4>
-        <div class="pr-row"><span>Current best:</span><div class="dual"><input type="number" step="0.5" id="pr_bench_w" placeholder="kg" onchange="savePRs()"><span>×</span><input type="number" id="pr_bench_r" placeholder="reps" onchange="savePRs()"></div></div>
-        <div class="pr-progress" id="pr_bench_bar"></div>
-      </div>
-      <div class="pr-card">
-        <h4>🦵 Back Squat</h4>
-        <div class="pr-row"><span>Current best:</span><div class="dual"><input type="number" step="0.5" id="pr_squat_w" placeholder="kg" onchange="savePRs()"><span>×</span><input type="number" id="pr_squat_r" placeholder="reps" onchange="savePRs()"></div></div>
-        <div class="pr-progress" id="pr_squat_bar"></div>
-      </div>
-      <div class="pr-card">
-        <h4>🔥 Deadlift</h4>
-        <div class="pr-row"><span>Current best:</span><div class="dual"><input type="number" step="0.5" id="pr_dead_w" placeholder="kg" onchange="savePRs()"><span>×</span><input type="number" id="pr_dead_r" placeholder="reps" onchange="savePRs()"></div></div>
-        <div class="pr-progress" id="pr_dead_bar"></div>
-      </div>
-      <div class="pr-card">
-        <h4>⬆️ Pull-Ups</h4>
-        <div class="pr-row"><span>Max unbroken reps:</span><input type="number" id="pr_pull" placeholder="reps" onchange="savePRs()" style="width:80px;"></div>
-        <div class="pr-progress" id="pr_pull_bar"></div>
-      </div>
-    </div>
-
-    <h3 class="tip-section-title">📸 Photo Checkpoints · Same lighting, time, clothing</h3>
-    <div class="photo-checkpoints" id="photoChecks"><!-- injected --></div>
-    <div class="tip-highlight" style="margin-top:10px;">
-      <strong>Why photos beat the scale:</strong> Scale weight fluctuates 1–2 kg daily from water/glycogen. A photo at W0 vs W12 doesn't lie — muscle replaces fat at the same weight and you look completely different.
-    </div>
-
-    <h3 class="tip-section-title">🏆 Phase Milestones (the verifiable win conditions)</h3>
-    <div class="milestone-list" id="milestoneList"><!-- injected --></div>
-
-    <h3 class="tip-section-title">📋 Habit Targets (every workout week)</h3>
-    <div class="tips-grid">
-      <div class="tip-card">
-        <div class="tip-icon">✅</div>
-        <div class="tip-info"><h4>5/5 workouts completed</h4><p>Non-negotiable. Missing 1 day = make it up Saturday. Missing 2 = restart the week.</p></div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🥩</div>
-        <div class="tip-info"><h4>170g+ protein, 6/7 days</h4><p>Weigh your food at least until you can eyeball it. Whey shakes are the safety net.</p></div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🚶</div>
-        <div class="tip-info"><h4>10,000 steps avg/day</h4><p>Track on phone. Rest days too. This is what makes the difference between cut and stuck.</p></div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">😴</div>
-        <div class="tip-info"><h4>7h+ sleep, 6/7 nights</h4><p>Below 7h kills recovery and increases hunger by ~25%. Single biggest fat loss multiplier.</p></div>
-      </div>
-    </div>
-  </div>
-
   <!-- ========== NUTRITION TAB ========== -->
   <div class="tab-content" id="tab-nutrition">
     <div class="tip-header">
-      <h2>🍽️ Nutrition — Recomposition (~85 kg)</h2>
-      <p>Slight deficit (~300 kcal) + high protein. Builds muscle, strips fat, reveals abs. Tuned for 5 lifting days + walking.</p>
+      <h2>🍽️ Nutrition — Lean Muscle Gain</h2>
+      <p>Slight surplus (+300 kcal) to build muscle while minimizing fat. Supports testosterone, back health, and energy.</p>
     </div>
 
     <h3 class="tip-section-title">📊 Daily Macro Targets</h3>
     <div class="macro-grid">
-      <div class="macro-card cal"><div class="macro-val">2,400–2,500</div><div class="macro-label">Calories (kcal)</div><div class="macro-sub">~28–29 kcal/kg · light deficit</div></div>
-      <div class="macro-card pro"><div class="macro-val">170–190g</div><div class="macro-label">Protein</div><div class="macro-sub">2.0–2.2 g/kg · spares muscle in deficit</div></div>
-      <div class="macro-card carb"><div class="macro-val">240–280g</div><div class="macro-label">Carbs</div><div class="macro-sub">2.8–3.3 g/kg · focus around training</div></div>
-      <div class="macro-card fat"><div class="macro-val">70–85g</div><div class="macro-label">Fats</div><div class="macro-sub">0.8–1.0 g/kg · hormonal floor</div></div>
+      <div class="macro-card cal"><div class="macro-val">2,800–3,000</div><div class="macro-label">Calories (kcal)</div><div class="macro-sub">~31–33 kcal/kg</div></div>
+      <div class="macro-card pro"><div class="macro-val">160–180g</div><div class="macro-label">Protein</div><div class="macro-sub">1.8–2.0 g/kg · Chicken, eggs, fish, whey</div></div>
+      <div class="macro-card carb"><div class="macro-val">350–400g</div><div class="macro-label">Carbs</div><div class="macro-sub">3.9–4.4 g/kg · Rice, oats, potatoes, fruit</div></div>
+      <div class="macro-card fat"><div class="macro-val">75–90g</div><div class="macro-label">Fats</div><div class="macro-sub">0.8–1.0 g/kg · Olive oil, nuts, avocado, eggs</div></div>
     </div>
 
-    <div class="tip-highlight" style="margin-bottom:16px;">
-      <strong>💡 The recomp formula:</strong> Small deficit + high protein + heavy lifting = muscle up, fat down at the same time. Don't go below 2,200 kcal — that kills recovery and muscle.
-    </div>
-
-    <h3 class="tip-section-title">🕐 Daily Meal Plan (~2,450 kcal · 185g protein)</h3>
+    <h3 class="tip-section-title">🕐 Daily Meal Plan</h3>
     <div class="meal-timeline">
       <div class="meal-item">
-        <div class="meal-time">7:30</div>
+        <div class="meal-time">7:00</div>
         <div class="meal-content">
           <div class="meal-name">🌅 Breakfast</div>
-          <div class="meal-desc">3 whole eggs + 2 egg whites scrambled · 50g oats with berries · black coffee</div>
-          <div class="meal-macros">~500 kcal · 35g protein · 45g carbs · 18g fat</div>
+          <div class="meal-desc">4 eggs (scrambled) + 80g oats with banana + handful almonds + coffee</div>
+          <div class="meal-macros">~700 kcal · 40g protein</div>
         </div>
       </div>
       <div class="meal-item">
-        <div class="meal-time">10:30</div>
+        <div class="meal-time">10:00</div>
         <div class="meal-content">
-          <div class="meal-name">🥜 Mid-Morning</div>
-          <div class="meal-desc">200g Greek yogurt (0% fat) + 20g almonds + 1 apple</div>
-          <div class="meal-macros">~320 kcal · 22g protein · 30g carbs · 12g fat</div>
+          <div class="meal-name">🥜 Snack</div>
+          <div class="meal-desc">Greek yogurt (200g) + mixed nuts + honey drizzle</div>
+          <div class="meal-macros">~300 kcal · 22g protein</div>
         </div>
       </div>
       <div class="meal-item">
-        <div class="meal-time">13:00</div>
+        <div class="meal-time">12:30</div>
         <div class="meal-content">
           <div class="meal-name">🥗 Lunch</div>
-          <div class="meal-desc">180g chicken breast · 120g rice (raw weight ~50g) · big salad with olive oil · veg</div>
-          <div class="meal-macros">~600 kcal · 50g protein · 55g carbs · 18g fat</div>
+          <div class="meal-desc">200g chicken breast + 200g rice + mixed vegetables + olive oil drizzle</div>
+          <div class="meal-macros">~750 kcal · 50g protein</div>
         </div>
       </div>
       <div class="meal-item">
-        <div class="meal-time">16:30</div>
+        <div class="meal-time">15:30</div>
         <div class="meal-content">
           <div class="meal-name">⚡ Pre-Workout</div>
-          <div class="meal-desc">1 banana + 30g whey in water · creatine 5g · coffee or pre-workout</div>
-          <div class="meal-macros">~250 kcal · 27g protein · 30g carbs · 1g fat</div>
+          <div class="meal-desc">Banana + rice cakes with peanut butter + creatine (5g)</div>
+          <div class="meal-macros">~300 kcal · 10g protein</div>
+        </div>
+      </div>
+      <div class="meal-item">
+        <div class="meal-time">17:30</div>
+        <div class="meal-content">
+          <div class="meal-name">🥤 Post-Workout</div>
+          <div class="meal-desc">Whey protein shake (40g) + 50g fast carbs (dextrose or honey in water)</div>
+          <div class="meal-macros">~300 kcal · 40g protein</div>
         </div>
       </div>
       <div class="meal-item">
         <div class="meal-time">19:30</div>
         <div class="meal-content">
           <div class="meal-name">🍽️ Dinner</div>
-          <div class="meal-desc">180g salmon or lean beef · medium sweet potato (200g) · large salad + olive oil</div>
-          <div class="meal-macros">~600 kcal · 40g protein · 40g carbs · 25g fat</div>
+          <div class="meal-desc">200g salmon or beef + sweet potato + salad + olive oil</div>
+          <div class="meal-macros">~700 kcal · 45g protein</div>
         </div>
       </div>
       <div class="meal-item">
         <div class="meal-time">22:00</div>
         <div class="meal-content">
-          <div class="meal-name">🌙 Optional Before Bed</div>
-          <div class="meal-desc">200g Greek yogurt + cinnamon + magnesium (skip if not hungry)</div>
-          <div class="meal-macros">~150 kcal · 20g protein · 10g carbs · 0g fat</div>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="tip-section-title">🔥 Fat Loss & Abs Boosters</h3>
-    <div class="tips-grid">
-      <div class="tip-card">
-        <div class="tip-icon">🚶</div>
-        <div class="tip-info">
-          <h4>10,000 steps daily</h4>
-          <p>Walking burns 300–500 kcal extra without taxing recovery. Single biggest lever for revealing abs. Walk after every meal if possible.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">☕</div>
-        <div class="tip-info">
-          <h4>Black coffee fasted</h4>
-          <p>Caffeine boosts fat oxidation, suppresses appetite, and improves training output. Stop by 2 PM so sleep stays good.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🍽️</div>
-        <div class="tip-info">
-          <h4>Eat protein first</h4>
-          <p>At every meal, finish your protein before carbs/fats. Higher satiety, lower glucose spikes, less calorie creep.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">💧</div>
-        <div class="tip-info">
-          <h4>3+ L of water</h4>
-          <p>Hunger is often thirst. A glass before each meal cuts intake by ~10% and improves performance. Add a pinch of salt on training days.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">📅</div>
-        <div class="tip-info">
-          <h4>Weekend = same rules</h4>
-          <p>Most people undo 5 days of work in 2 days of weekend eating. Stick to your macros Sat/Sun — leaner abs come from consistency, not perfection.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🥦</div>
-        <div class="tip-info">
-          <h4>Volume foods</h4>
-          <p>Fill half your plate with greens, peppers, broccoli, cucumber. They take up space, kill hunger, and barely count toward calories.</p>
+          <div class="meal-name">🌙 Before Bed</div>
+          <div class="meal-desc">200g Greek yogurt + mixed berries + magnesium supplement</div>
+          <div class="meal-macros">~200 kcal · 20g protein</div>
         </div>
       </div>
     </div>
@@ -571,58 +384,57 @@
         <div class="tip-icon">💊</div>
         <div class="tip-info">
           <h4>Creatine Monohydrate</h4>
-          <p>5g daily, every day. No loading needed. Boosts strength, helps you keep muscle while in a deficit. Cheapest, most proven supplement.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🥤</div>
-        <div class="tip-info">
-          <h4>Whey Protein</h4>
-          <p>1–2 scoops/day to hit your 180g target. Fast-absorbing post-workout. Easier than choking down another chicken breast.</p>
+          <p>5g daily, every day. No loading needed. Take with pre-workout meal. Proven for strength, muscle size, and cognitive function.</p>
         </div>
       </div>
       <div class="tip-card">
         <div class="tip-icon">🐟</div>
         <div class="tip-info">
           <h4>Omega-3 Fish Oil</h4>
-          <p>2g EPA/DHA daily. Anti-inflammatory for joints, helps fat loss, supports brain and heart health.</p>
+          <p>2–3g EPA/DHA daily. Anti-inflammatory for back pain, joint health, heart health, and testosterone production.</p>
         </div>
       </div>
       <div class="tip-card">
         <div class="tip-icon">☀️</div>
         <div class="tip-info">
-          <h4>Vitamin D3</h4>
-          <p>4,000 IU daily with a fat-containing meal. Critical for testosterone, mood, immune function. Most adults are deficient.</p>
+          <h4>Vitamin D3 + K2</h4>
+          <p>4,000 IU D3 + 100μg K2 daily. Take with fats. Essential for testosterone, bone density, mood, and immune function.</p>
         </div>
       </div>
       <div class="tip-card">
         <div class="tip-icon">🧲</div>
         <div class="tip-info">
           <h4>Magnesium Glycinate</h4>
-          <p>400mg before bed. Improves sleep depth, reduces muscle cramps, helps recovery. Game-changer for sleep quality.</p>
+          <p>400mg before bed. Improves sleep, reduces cramps, supports testosterone, aids back pain recovery.</p>
         </div>
       </div>
       <div class="tip-card">
-        <div class="tip-icon">☕</div>
+        <div class="tip-icon">⚡</div>
         <div class="tip-info">
-          <h4>Caffeine (pre-workout)</h4>
-          <p>150–200mg 30 min before training. Better workouts = more muscle preserved in a deficit. Coffee works fine.</p>
+          <h4>Zinc</h4>
+          <p>25–30mg daily (if not getting enough from food). Directly supports testosterone production and immune health.</p>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🥤</div>
+        <div class="tip-info">
+          <h4>Whey Protein</h4>
+          <p>1–2 scoops daily as needed to hit protein target. Fast-absorbing, ideal post-workout. Not a meal replacement.</p>
         </div>
       </div>
     </div>
 
-    <h3 class="tip-section-title">🚫 What Will Sabotage You</h3>
+    <h3 class="tip-section-title">🚫 Foods to Avoid</h3>
     <div class="avoid-list">
-      <div class="avoid-item"><span class="avoid-x">✕</span> Liquid calories (juice, soda, alcohol) — easiest way to blow the deficit</div>
-      <div class="avoid-item"><span class="avoid-x">✕</span> "Healthy" snacks (granola, nut butter, dried fruit) — calorie bombs</div>
-      <div class="avoid-item"><span class="avoid-x">✕</span> Skipping meals → bingeing at night (eat consistently)</div>
-      <div class="avoid-item"><span class="avoid-x">✕</span> Untracked oils & sauces — 1 tbsp olive oil = 120 kcal</div>
-      <div class="avoid-item"><span class="avoid-x">✕</span> Cutting calories below 2,200 → muscle loss + plateau</div>
-      <div class="avoid-item"><span class="avoid-x">✕</span> Weekend "cheat days" — undo all progress in 48 hours</div>
+      <div class="avoid-item"><span class="avoid-x">✕</span> Excessive alcohol — kills testosterone, ruins sleep & recovery</div>
+      <div class="avoid-item"><span class="avoid-x">✕</span> Processed sugar & sodas — empty calories, insulin spikes</div>
+      <div class="avoid-item"><span class="avoid-x">✕</span> Trans fats (fried fast food, margarine) — inflammatory</div>
+      <div class="avoid-item"><span class="avoid-x">✕</span> Excessive caffeine after 2 PM — destroys sleep quality</div>
+      <div class="avoid-item"><span class="avoid-x">✕</span> Skipping meals — your muscles need consistent fuel</div>
     </div>
 
     <div class="tip-highlight" style="margin-top:16px;">
-      <strong>🎯 Simple rule:</strong> Hit 180g protein, walk 10k steps, lift hard 5×/week, sleep 8h. Do that for 12 weeks. Abs will appear.
+      <strong>💡 Simple rule:</strong> If it had a face or grew in the ground, eat it. If it came from a factory, limit it. Protein at every meal. Water with every meal. Done.
     </div>
   </div>
 
@@ -799,14 +611,12 @@
 
     <h3 class="tip-section-title">🎯 Expected Results at 12 Weeks</h3>
     <div class="results-grid">
-      <div class="result-card"><div class="result-icon">💪</div><div class="result-label">Lean Mass</div><div class="result-val">+2–4 kg muscle</div></div>
-      <div class="result-card"><div class="result-icon">🔥</div><div class="result-label">Fat Loss</div><div class="result-val">−4–6 kg fat</div></div>
-      <div class="result-card"><div class="result-icon">📐</div><div class="result-label">Waist</div><div class="result-val">−4–7 cm</div></div>
-      <div class="result-card"><div class="result-icon">🎯</div><div class="result-label">Abs</div><div class="result-val">Upper 4 visible</div></div>
-      <div class="result-card"><div class="result-icon">🏋️</div><div class="result-label">Bench</div><div class="result-val">+10–15 kg</div></div>
-      <div class="result-card"><div class="result-icon">🦵</div><div class="result-label">Squat</div><div class="result-val">+15–20 kg</div></div>
-      <div class="result-card"><div class="result-icon">📏</div><div class="result-label">Body</div><div class="result-val">V-taper + tighter</div></div>
-      <div class="result-card"><div class="result-icon">⚡</div><div class="result-label">Energy</div><div class="result-val">Sustained, sharp</div></div>
+      <div class="result-card"><div class="result-icon">💪</div><div class="result-label">Muscle</div><div class="result-val">+3–5 kg lean mass</div></div>
+      <div class="result-card"><div class="result-icon">🏋️</div><div class="result-label">Bench</div><div class="result-val">~90–100 kg</div></div>
+      <div class="result-card"><div class="result-icon">🦵</div><div class="result-label">Squat</div><div class="result-val">~110–120 kg</div></div>
+      <div class="result-card"><div class="result-icon">🔥</div><div class="result-label">Deadlift</div><div class="result-val">~130–140 kg</div></div>
+      <div class="result-card"><div class="result-icon">📐</div><div class="result-label">Body</div><div class="result-val">V-taper forming</div></div>
+      <div class="result-card"><div class="result-icon">⚡</div><div class="result-label">Energy</div><div class="result-val">Noticeably higher</div></div>
     </div>
   </div>
 
@@ -866,7 +676,7 @@
 
 <script>
 // ==================== PIN LOCK ====================
-const PIN_KEY = 'gym_recomp_v1_pin';
+const PIN_KEY = 'gym12w2_pin';
 let pinBuffer = '';
 let pinMode = 'unlock'; // 'unlock', 'setup', 'confirm', 'change_old', 'change_new', 'change_confirm'
 let pinTemp = '';
@@ -1180,177 +990,117 @@ const EQUIP = {
 };
 
 // ==================== WORKOUT DATA ====================
-// Mon May 25, 2026 — week 1 starts Monday. dayIndex 0 = Mon, 1 = Tue, ..., 4 = Fri, 5 = Sat (rest), 6 = Sun (rest)
-const START = new Date(2026, 4, 25);
+const START = new Date(2026, 1, 6);
 const WARMUPS = {
-  ph1: "5 min incline walk → Cat-Cow ×10 → Band Pull-Aparts ×15 → Bodyweight Squats ×15 → Arm Circles ×10",
-  ph2: "5 min cardio (bike/row) → dynamic stretches → 2 ramp-up sets (50%, 70%)",
-  ph3: "5 min cardio → mobility flow → 3 ramp-up sets (40%, 60%, 80%)"
+  ph1: "5 min incline walk → Cat-Cow ×10 → Bird-Dog ×8/side → Dead Bug ×10 → Band Pull-Aparts ×15",
+  ph2: "5 min cardio → target muscle mobility → 2 warm-up sets (50%, 70%)",
+  ph3: "5 min cardio → dynamic stretches → 3 warm-up sets (40%, 60%, 80%)"
 };
-const BACK_REHAB = "Cat-Cow ×10 → Dead Bug ×10/side → Child's Pose 30s → Glute Bridge ×15 → 30s deep breathing";
+const BACK_REHAB = "Cat-Cow ×10 → Bird-Dog ×8/side → Dead Bug ×10 → Child's Pose 30s → Hip Flexor Stretch 30s/side → Glute Bridge ×15";
 
 function yt(name) { return `https://www.youtube.com/results?search_query=how+to+${encodeURIComponent(name)}+form+tutorial`; }
 
-/* ===== PHASE 1 — Weeks 1–4 — Foundation + Form ===== */
-const PH1_PUSH = { type:"push", label:"Mon · Push — Chest, Shoulders, Triceps + Abs", exercises:[
-  { name:"Barbell Bench Press", sets:"4×10", detail:"90s rest · 3s eccentric", equip:"bench", ytq:"barbell bench press" },
-  { name:"Incline DB Press", sets:"3×12", detail:"75s rest · 30° bench", equip:"incline_bench", ytq:"incline dumbbell press" },
-  { name:"Seated DB Shoulder Press", sets:"3×10", detail:"75s rest · back supported", equip:"dumbbell", ytq:"seated dumbbell shoulder press" },
-  { name:"Cable Lateral Raise", sets:"3×15", detail:"45s rest · pinky up", equip:"cable", note:"Capped shoulders", ytq:"cable lateral raise" },
-  { name:"Tricep Rope Pushdown", sets:"3×12", detail:"60s rest · squeeze 1s", equip:"cable", ytq:"tricep rope pushdown" },
-  { name:"Hanging Leg Raise", sets:"3×12", detail:"45s rest · slow, no swing", equip:"pullup", note:"Lower abs", ytq:"hanging leg raise" },
-  { name:"Plank", sets:"3×45s", detail:"30s rest · brace hard", equip:"floor", ytq:"plank proper form" },
+const PH1_UPPER = { type:"upper", label:"Upper Body", exercises:[
+  { name:"Barbell Bench Press", sets:"3×10", detail:"90s rest · 3s eccentric", equip:"bench", ytq:"barbell bench press" },
+  { name:"Seated Cable Row", sets:"3×12", detail:"90s rest · pause 1s at chest", equip:"cable", note:"Key for back health", ytq:"seated cable row" },
+  { name:"DB Shoulder Press (Seated)", sets:"3×10", detail:"75s rest · back supported", equip:"dumbbell", ytq:"seated dumbbell shoulder press" },
+  { name:"Lat Pulldown", sets:"3×12", detail:"75s rest · wide grip", equip:"cable", ytq:"lat pulldown" },
+  { name:"DB Curl + Tricep Pushdown", sets:"2×12 ea", detail:"60s rest · superset", equip:"dumbbell", ytq:"dumbbell curl tricep pushdown superset" },
+  { name:"Face Pulls", sets:"3×15", detail:"60s rest · external rotate", equip:"cable", note:"Posture corrector", ytq:"face pulls cable" },
 ]};
-const PH1_PULL = { type:"pull", label:"Tue · Pull — Back, Biceps, Rear Delts + Abs", exercises:[
-  { name:"Lat Pulldown (Wide Grip)", sets:"4×10", detail:"90s rest · chest up", equip:"cable", ytq:"lat pulldown wide grip" },
-  { name:"Seated Cable Row", sets:"3×12", detail:"75s rest · pause 1s at chest", equip:"cable", note:"V-taper builder", ytq:"seated cable row" },
-  { name:"Single-Arm DB Row", sets:"3×10/side", detail:"60s rest · elbow tight", equip:"dumbbell", ytq:"one arm dumbbell row" },
-  { name:"Face Pulls", sets:"3×15", detail:"45s rest · external rotate", equip:"cable", note:"Posture fix", ytq:"face pulls cable" },
-  { name:"DB Hammer Curl", sets:"3×12", detail:"60s rest · no swing", equip:"dumbbell", ytq:"dumbbell hammer curl" },
-  { name:"Cable Crunch", sets:"3×15", detail:"45s rest · crunch, don't pull", equip:"cable", note:"Upper abs", ytq:"cable crunch" },
-  { name:"Russian Twist", sets:"3×20", detail:"30s rest · slow rotation", equip:"floor", note:"Obliques", ytq:"russian twist" },
+const PH1_LOWER = { type:"legs", label:"Lower Body & Core", exercises:[
+  { name:"Goblet Squat", sets:"3×12", detail:"90s rest · full depth", equip:"dumbbell", ytq:"goblet squat" },
+  { name:"Romanian Deadlift (DB)", sets:"3×10", detail:"90s rest · hinge at hips", equip:"dumbbell", note:"Back pain reliever", ytq:"dumbbell romanian deadlift" },
+  { name:"Leg Press", sets:"3×12", detail:"90s rest · full ROM", equip:"leg_press", ytq:"leg press machine" },
+  { name:"Walking Lunges", sets:"3×10/leg", detail:"75s rest · light DBs", equip:"dumbbell", ytq:"dumbbell walking lunges" },
+  { name:"Leg Curl (Machine)", sets:"3×12", detail:"60s rest · slow eccentric", equip:"leg_curl", ytq:"lying leg curl machine" },
+  { name:"Plank + Side Plank", sets:"3×30s ea", detail:"45s rest · brace core", equip:"floor", ytq:"plank side plank" },
+  { name:"Pallof Press", sets:"3×10/side", detail:"45s rest · anti-rotation", equip:"cable", ytq:"pallof press cable" },
 ]};
-const PH1_LEGS = { type:"legs", label:"Wed · Legs + Core — Quads, Hams, Glutes", exercises:[
-  { name:"Goblet Squat", sets:"4×10", detail:"90s rest · full depth", equip:"dumbbell", ytq:"goblet squat" },
-  { name:"Romanian Deadlift (DB)", sets:"3×10", detail:"90s rest · hinge at hips", equip:"dumbbell", note:"Hamstrings + glutes", ytq:"dumbbell romanian deadlift" },
-  { name:"Leg Press", sets:"3×12", detail:"75s rest · full ROM", equip:"leg_press", ytq:"leg press machine" },
-  { name:"Walking Lunges", sets:"3×10/leg", detail:"60s rest · light DBs", equip:"dumbbell", ytq:"dumbbell walking lunges" },
-  { name:"Lying Leg Curl", sets:"3×12", detail:"60s rest · 3s eccentric", equip:"leg_curl", ytq:"lying leg curl machine" },
-  { name:"Standing Calf Raise", sets:"4×15", detail:"45s rest · pause at top", equip:"calf", ytq:"standing calf raise machine" },
-  { name:"Dead Bug", sets:"3×12/side", detail:"30s rest · back flat to floor", equip:"floor", note:"Deep core", ytq:"dead bug exercise" },
+const PH2_PUSH = { type:"push", label:"Push — Chest, Shoulders, Triceps", exercises:[
+  { name:"Barbell Bench Press", sets:"4×8", detail:"2 min rest · +2.5kg/week", equip:"bench", ytq:"barbell bench press" },
+  { name:"Incline DB Press", sets:"3×10", detail:"90s rest · 30° incline", equip:"incline_bench", ytq:"incline dumbbell press" },
+  { name:"Overhead Press (BB)", sets:"3×8", detail:"2 min rest · standing", equip:"barbell", ytq:"barbell overhead press standing" },
+  { name:"Cable Lateral Raise", sets:"3×15", detail:"60s rest · slow eccentric", equip:"cable", ytq:"cable lateral raise" },
+  { name:"Dips", sets:"3×10", detail:"90s rest · lean forward", equip:"dip", ytq:"chest dips" },
+  { name:"Tricep Overhead Extension", sets:"3×12", detail:"60s rest · full stretch", equip:"cable", ytq:"cable tricep overhead extension" },
 ]};
-const PH1_UPPER = { type:"upper", label:"Thu · Upper Body + HIIT — Chest, Back, Arms", exercises:[
-  { name:"Incline Barbell Bench", sets:"3×10", detail:"90s rest · 30° bench", equip:"bench", ytq:"incline barbell bench press" },
-  { name:"Pull-Ups / Assisted", sets:"3×8-10", detail:"90s rest · dead hang", equip:"pullup", note:"King of pulls", ytq:"pull ups beginner" },
-  { name:"DB Chest Fly", sets:"3×12", detail:"60s rest · slow stretch", equip:"incline_bench", ytq:"dumbbell chest fly" },
-  { name:"Cable Reverse Fly", sets:"3×15", detail:"45s rest · rear delts", equip:"cable", ytq:"cable reverse fly" },
-  { name:"EZ-Bar Curl", sets:"3×12", detail:"60s rest · strict form", equip:"barbell", ytq:"ez bar curl" },
-  { name:"Tricep Dips (or Bench Dips)", sets:"3×10", detail:"60s rest · chest up", equip:"dip", ytq:"tricep dips" },
-  { name:"HIIT Treadmill Finisher", sets:"6 rounds", detail:"30s sprint / 60s walk", equip:"floor", note:"Fat burn", ytq:"HIIT treadmill sprint walk" },
+const PH2_PULL = { type:"pull", label:"Pull — Back, Biceps, Rear Delts", exercises:[
+  { name:"Barbell Bent-Over Row", sets:"4×8", detail:"2 min rest · 45° hinge", equip:"barbell", note:"Spine neutral!", ytq:"barbell bent over row" },
+  { name:"Pull-Ups / Assisted", sets:"3×8-10", detail:"90s rest · full dead hang", equip:"pullup", ytq:"pull ups beginner" },
+  { name:"Seated Cable Row (Close)", sets:"3×10", detail:"90s rest · squeeze 2s", equip:"cable", ytq:"close grip seated cable row" },
+  { name:"Face Pulls", sets:"3×15", detail:"60s rest · high pull", equip:"cable", ytq:"face pulls" },
+  { name:"Barbell Curl", sets:"3×10", detail:"75s rest · no swinging", equip:"barbell", ytq:"barbell curl" },
+  { name:"Hammer + Reverse Curl", sets:"2×12 ea", detail:"60s rest · superset", equip:"dumbbell", ytq:"hammer curl reverse curl" },
 ]};
-const PH1_LOWER = { type:"lower", label:"Fri · Lower + Glutes + Abs Finisher", exercises:[
-  { name:"Barbell Back Squat", sets:"4×8", detail:"2 min rest · parallel+", equip:"squat_rack", note:"#1 leg builder", ytq:"barbell back squat" },
-  { name:"Barbell Hip Thrust", sets:"3×10", detail:"90s rest · squeeze 2s", equip:"barbell", note:"Glutes + abs visible", ytq:"barbell hip thrust" },
-  { name:"Bulgarian Split Squat", sets:"3×10/leg", detail:"75s rest · hold DBs", equip:"dumbbell", ytq:"bulgarian split squat dumbbell" },
-  { name:"Leg Extension", sets:"3×12", detail:"60s rest · squeeze top", equip:"leg_ext", ytq:"leg extension machine" },
-  { name:"Seated Calf Raise", sets:"3×15", detail:"45s rest · slow", equip:"calf", ytq:"seated calf raise machine" },
-  { name:"Ab Wheel Rollout (or Kneeling)", sets:"3×10", detail:"60s rest · brace core", equip:"abwheel", note:"Full ab wall", ytq:"ab wheel rollout" },
-  { name:"Mountain Climbers", sets:"3×30s", detail:"30s rest · fast pace", equip:"floor", ytq:"mountain climbers" },
+const PH2_LEGS = { type:"legs", label:"Legs — Quads, Hams, Glutes, Core", exercises:[
+  { name:"Barbell Back Squat", sets:"4×8", detail:"2.5 min rest · parallel+", equip:"squat_rack", note:"#1 T-booster", ytq:"barbell back squat" },
+  { name:"Romanian Deadlift (BB)", sets:"3×10", detail:"2 min rest · neutral spine", equip:"barbell", ytq:"barbell romanian deadlift" },
+  { name:"Bulgarian Split Squat", sets:"3×10/leg", detail:"90s rest · hold DBs", equip:"dumbbell", ytq:"bulgarian split squat dumbbell" },
+  { name:"Leg Extension", sets:"3×12", detail:"60s rest · squeeze at top", equip:"leg_ext", ytq:"leg extension machine" },
+  { name:"Leg Curl", sets:"3×12", detail:"60s rest · 3s negative", equip:"leg_curl", ytq:"leg curl machine" },
+  { name:"Standing Calf Raises", sets:"4×15", detail:"45s rest · full ROM", equip:"calf", ytq:"standing calf raise machine" },
+  { name:"Hanging Leg Raise", sets:"3×12", detail:"60s rest · no swinging", equip:"pullup", ytq:"hanging leg raise" },
 ]};
-
-/* ===== PHASE 2 — Weeks 5–8 — Hypertrophy Push (more volume, supersets) ===== */
-const PH2_PUSH = { type:"push", label:"Mon · Push — Volume + Pump", exercises:[
-  { name:"Barbell Bench Press", sets:"5×8", detail:"90s rest · +2.5kg/wk", equip:"bench", ytq:"barbell bench press" },
-  { name:"Incline DB Press", sets:"4×10", detail:"75s rest", equip:"incline_bench", ytq:"incline dumbbell press" },
-  { name:"Standing BB Overhead Press", sets:"3×10", detail:"90s rest · strict", equip:"barbell", ytq:"standing barbell overhead press" },
-  { name:"Cable Lateral Raise (Drop Set)", sets:"3×12+8", detail:"45s rest · 1 drop", equip:"cable", ytq:"cable lateral raise drop set" },
-  { name:"Pushdown + OH Extension SUPERSET", sets:"3×12 ea", detail:"60s rest · back-to-back", equip:"cable", note:"Tricep blast", ytq:"tricep pushdown overhead extension superset" },
-  { name:"Hanging Leg Raise", sets:"3×15", detail:"45s rest · slow", equip:"pullup", ytq:"hanging leg raise" },
-  { name:"Cable Crunch", sets:"3×20", detail:"30s rest · heavy", equip:"cable", note:"Six-pack builder", ytq:"cable crunch heavy" },
-]};
-const PH2_PULL = { type:"pull", label:"Tue · Pull — Volume + Pump", exercises:[
-  { name:"Lat Pulldown (Wide)", sets:"5×8", detail:"90s rest", equip:"cable", ytq:"lat pulldown" },
-  { name:"Barbell Bent-Over Row", sets:"4×8", detail:"90s rest · neutral spine", equip:"barbell", note:"Spine neutral!", ytq:"barbell bent over row" },
-  { name:"Seated Cable Row (Close)", sets:"3×10", detail:"75s rest · squeeze 2s", equip:"cable", ytq:"close grip seated cable row" },
-  { name:"Face Pulls", sets:"3×15", detail:"45s rest", equip:"cable", ytq:"face pulls" },
-  { name:"BB Curl + Hammer Curl SUPERSET", sets:"3×10 ea", detail:"60s rest · back-to-back", equip:"barbell", note:"Bicep peak", ytq:"barbell curl hammer curl superset" },
-  { name:"Hanging Knee Tuck", sets:"3×12", detail:"45s rest · controlled", equip:"pullup", ytq:"hanging knee tuck" },
-  { name:"Plank", sets:"3×60s", detail:"30s rest · no sag", equip:"floor", ytq:"plank 60 seconds" },
-]};
-const PH2_LEGS = { type:"legs", label:"Wed · Legs — Volume + Conditioning", exercises:[
-  { name:"Barbell Back Squat", sets:"5×8", detail:"2 min rest · controlled", equip:"squat_rack", ytq:"barbell back squat" },
-  { name:"Romanian Deadlift (BB)", sets:"4×8", detail:"90s rest · neutral spine", equip:"barbell", note:"Hamstrings", ytq:"barbell romanian deadlift" },
-  { name:"Leg Press", sets:"3×15", detail:"75s rest · feet high = glutes", equip:"leg_press", ytq:"leg press machine" },
-  { name:"Walking Lunges", sets:"3×12/leg", detail:"60s rest · DBs", equip:"dumbbell", ytq:"dumbbell walking lunges" },
-  { name:"Lying Leg Curl", sets:"3×15", detail:"60s rest · 3s eccentric", equip:"leg_curl", ytq:"lying leg curl" },
-  { name:"Standing Calf Raise", sets:"4×20", detail:"45s rest", equip:"calf", ytq:"standing calf raise" },
-  { name:"Pallof Press", sets:"3×10/side", detail:"30s rest · anti-rotation", equip:"cable", note:"Obliques", ytq:"pallof press cable" },
-]};
-const PH2_UPPER = { type:"upper", label:"Thu · Upper Body + HIIT Burn", exercises:[
-  { name:"Bench Press", sets:"4×8", detail:"90s rest", equip:"bench", ytq:"bench press" },
-  { name:"Pull-Ups (weighted if possible)", sets:"4×8", detail:"90s rest", equip:"pullup", ytq:"weighted pull ups" },
-  { name:"Incline DB Press", sets:"3×10", detail:"75s rest", equip:"incline_bench", ytq:"incline dumbbell press" },
-  { name:"Single-Arm Cable Row", sets:"3×12/side", detail:"60s rest", equip:"cable", ytq:"single arm cable row" },
-  { name:"EZ Curl + Skull Crusher SUPERSET", sets:"3×10 ea", detail:"60s rest", equip:"barbell", note:"Arm pump", ytq:"ez curl skull crusher superset" },
-  { name:"HIIT Bike Finisher", sets:"10 min", detail:"30s hard / 60s easy × 6", equip:"floor", note:"Fat burn", ytq:"HIIT bike intervals" },
-]};
-const PH2_LOWER = { type:"lower", label:"Fri · Lower + Glutes + Core Burn", exercises:[
-  { name:"Barbell Back Squat", sets:"4×10", detail:"90s rest · tempo", equip:"squat_rack", ytq:"barbell back squat" },
-  { name:"Barbell Hip Thrust", sets:"4×10", detail:"90s rest · squeeze 2s", equip:"barbell", note:"Glute peak", ytq:"barbell hip thrust" },
-  { name:"Bulgarian Split Squat", sets:"3×12/leg", detail:"75s rest · DBs", equip:"dumbbell", ytq:"bulgarian split squat" },
-  { name:"Leg Ext + Leg Curl SUPERSET", sets:"3×12 ea", detail:"60s rest · back-to-back", equip:"leg_ext", note:"Quads/hams burn", ytq:"leg extension leg curl superset" },
-  { name:"Seated Calf Raise", sets:"4×15", detail:"45s rest", equip:"calf", ytq:"seated calf raise" },
-  { name:"Ab Wheel Rollout", sets:"3×12", detail:"60s rest · brace", equip:"abwheel", ytq:"ab wheel rollout" },
-  { name:"V-Ups", sets:"3×15", detail:"30s rest · slow control", equip:"floor", note:"Full abs", ytq:"v ups exercise" },
-]};
-
-/* ===== PHASE 3 — Weeks 9–12 — Strength + Cut Definition ===== */
-const PH3_PUSH = { type:"push", label:"Mon · Push — Strength + Definition", exercises:[
-  { name:"Barbell Bench Press", sets:"5×5", detail:"3 min rest · heavy", equip:"bench", note:"Build strength", ytq:"barbell bench press heavy" },
-  { name:"Standing BB Overhead Press", sets:"4×6", detail:"2 min rest · strict", equip:"barbell", ytq:"barbell overhead press" },
+const PH3_PUSH = { type:"push", label:"Push — Strength Focus", exercises:[
+  { name:"Barbell Bench Press", sets:"5×5", detail:"3 min rest · heavy", equip:"bench", note:"Target: 100+kg", ytq:"barbell bench press heavy" },
+  { name:"Overhead Press", sets:"4×6", detail:"2.5 min rest · strict", equip:"barbell", ytq:"barbell overhead press" },
   { name:"Incline DB Press", sets:"3×8", detail:"90s rest", equip:"incline_bench", ytq:"incline dumbbell press" },
-  { name:"Weighted Dips", sets:"3×8", detail:"90s rest · belt + plate", equip:"dip", ytq:"weighted dips" },
-  { name:"Cable Lat Raise (Drop Set)", sets:"3×12+8+6", detail:"90s rest · 2 drops", equip:"cable", ytq:"cable lateral raise drop set" },
+  { name:"Weighted Dips", sets:"3×8", detail:"90s rest · add belt", equip:"dip", ytq:"weighted dips" },
+  { name:"Lateral Raise (Drop Set)", sets:"3×12+8+6", detail:"90s · 3 drops", equip:"dumbbell", ytq:"lateral raise drop set" },
   { name:"Tricep Rope Pushdown", sets:"3×12", detail:"60s rest", equip:"cable", ytq:"tricep rope pushdown" },
-  { name:"Toes-to-Bar (or Leg Raise)", sets:"3×12", detail:"45s rest", equip:"pullup", note:"Six-pack", ytq:"toes to bar" },
 ]};
-const PH3_PULL = { type:"pull", label:"Tue · Pull — Strength + Definition", exercises:[
-  { name:"Conventional Deadlift", sets:"5×5", detail:"3 min rest · reset each rep", equip:"barbell", note:"Full-body power", ytq:"conventional deadlift" },
-  { name:"Weighted Pull-Ups", sets:"4×6", detail:"2 min rest", equip:"pullup", ytq:"weighted pull ups" },
-  { name:"Pendlay Row", sets:"4×6", detail:"90s rest · explosive", equip:"barbell", ytq:"pendlay row" },
+const PH3_PULL = { type:"pull", label:"Pull — Strength Focus", exercises:[
+  { name:"Conventional Deadlift", sets:"5×5", detail:"3 min rest · reset each rep", equip:"barbell", note:"Target: 140+kg", ytq:"conventional deadlift" },
+  { name:"Weighted Pull-Ups", sets:"4×6", detail:"2.5 min rest", equip:"pullup", ytq:"weighted pull ups" },
+  { name:"Pendlay Row", sets:"4×6", detail:"2 min rest · explosive", equip:"barbell", ytq:"pendlay row" },
+  { name:"Chest-Supported Row", sets:"3×10", detail:"90s rest · back-safe", equip:"leg_curl", ytq:"chest supported row machine" },
   { name:"Face Pulls", sets:"3×15", detail:"60s rest", equip:"cable", ytq:"face pulls" },
-  { name:"BB Curl (Drop Set)", sets:"3×10+6", detail:"75s rest · 1 drop", equip:"barbell", ytq:"barbell curl drop set" },
-  { name:"Cable Crunch (Heavy)", sets:"3×12", detail:"45s rest · brace", equip:"cable", note:"Six-pack finisher", ytq:"cable crunch heavy" },
+  { name:"Barbell Curl", sets:"3×8", detail:"75s rest · strict", equip:"barbell", ytq:"barbell curl" },
 ]};
-const PH3_LEGS = { type:"legs", label:"Wed · Legs — Strength + Definition", exercises:[
-  { name:"Front Squat", sets:"5×5", detail:"3 min rest · elbows high", equip:"squat_rack", note:"Quad-dominant", ytq:"front squat barbell" },
-  { name:"Romanian Deadlift (BB)", sets:"4×6", detail:"2 min rest", equip:"barbell", ytq:"barbell romanian deadlift" },
-  { name:"Bulgarian Split Squat", sets:"3×8/leg", detail:"90s rest · heavy DBs", equip:"dumbbell", ytq:"bulgarian split squat" },
-  { name:"Leg Extension (Drop Set)", sets:"3×12+8", detail:"60s rest · 1 drop", equip:"leg_ext", ytq:"leg extension drop set" },
-  { name:"Lying Leg Curl", sets:"3×10", detail:"60s rest", equip:"leg_curl", ytq:"lying leg curl" },
-  { name:"Standing Calf Raise", sets:"4×12", detail:"45s rest · 2s pause", equip:"calf", ytq:"standing calf raise" },
-]};
-const PH3_UPPER = { type:"upper", label:"Thu · Upper Strength + HIIT Cut", exercises:[
-  { name:"Incline BB Bench", sets:"4×6", detail:"2 min rest · heavy", equip:"bench", ytq:"incline barbell bench heavy" },
-  { name:"Weighted Pull-Ups", sets:"3×8", detail:"90s rest", equip:"pullup", ytq:"weighted pull ups" },
-  { name:"Seated DB Shoulder Press", sets:"3×8", detail:"75s rest", equip:"dumbbell", ytq:"seated dumbbell shoulder press" },
-  { name:"Chest-Supported Row", sets:"3×10", detail:"60s rest · back-safe", equip:"leg_curl", ytq:"chest supported row" },
-  { name:"EZ Curl + Pushdown SUPERSET", sets:"3×10 ea", detail:"60s rest", equip:"barbell", note:"Final pump", ytq:"ez curl tricep pushdown superset" },
-  { name:"HIIT Treadmill Cut", sets:"8 rounds", detail:"30s sprint / 60s walk", equip:"floor", note:"Fat burn", ytq:"HIIT treadmill sprints" },
-]};
-const PH3_LOWER = { type:"lower", label:"Fri · Lower + Conditioning + Abs", exercises:[
-  { name:"Barbell Back Squat", sets:"5×5", detail:"3 min rest · belt up", equip:"squat_rack", note:"Strength PR week", ytq:"barbell back squat heavy" },
-  { name:"Barbell Hip Thrust", sets:"4×8", detail:"2 min rest · pause top", equip:"barbell", ytq:"barbell hip thrust" },
-  { name:"Walking Lunges", sets:"3×12/leg", detail:"75s rest · heavy DBs", equip:"dumbbell", ytq:"dumbbell walking lunges" },
-  { name:"Nordic Hamstring Curl", sets:"3×6", detail:"90s rest · slow eccentric", equip:"floor", note:"Hamstring shield", ytq:"nordic hamstring curl" },
-  { name:"Seated Calf Raise", sets:"4×15", detail:"45s rest", equip:"calf", ytq:"seated calf raise" },
-  { name:"Ab Wheel Rollout", sets:"3×12", detail:"60s rest", equip:"abwheel", ytq:"ab wheel rollout" },
-  { name:"HIIT Bike Finisher", sets:"10 min", detail:"30s hard / 60s easy × 6", equip:"floor", ytq:"HIIT bike intervals" },
+const PH3_LEGS = { type:"legs", label:"Legs — Strength Focus", exercises:[
+  { name:"Barbell Back Squat", sets:"5×5", detail:"3 min rest · belt up", equip:"squat_rack", note:"Target: 120+kg", ytq:"barbell back squat" },
+  { name:"Barbell Hip Thrust", sets:"4×8", detail:"2 min rest · squeeze", equip:"barbell", ytq:"barbell hip thrust" },
+  { name:"Front Squat", sets:"3×8", detail:"2 min rest · elbows high", equip:"squat_rack", ytq:"front squat barbell" },
+  { name:"Nordic Hamstring Curl", sets:"3×6", detail:"90s rest · slow eccentric", equip:"floor", ytq:"nordic hamstring curl" },
+  { name:"Seated Calf Raises", sets:"4×12", detail:"45s rest · 2s pause", equip:"calf", ytq:"seated calf raise machine" },
+  { name:"Ab Wheel Rollout", sets:"3×10", detail:"60s rest", equip:"abwheel", ytq:"ab wheel rollout" },
 ]};
 
-// Schedule: dayIndex 0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat (rest), 6=Sun (rest)
 function getDayPlan(dayIndex) {
   const week = Math.floor(dayIndex / 7);
   const dow = dayIndex % 7;
   const phase = week < 4 ? 1 : week < 8 ? 2 : 3;
   const warmup = phase===1?WARMUPS.ph1:phase===2?WARMUPS.ph2:WARMUPS.ph3;
-  const sched = phase===1
-    ? [PH1_PUSH, PH1_PULL, PH1_LEGS, PH1_UPPER, PH1_LOWER]
-    : phase===2
-    ? [PH2_PUSH, PH2_PULL, PH2_LEGS, PH2_UPPER, PH2_LOWER]
-    : [PH3_PUSH, PH3_PULL, PH3_LEGS, PH3_UPPER, PH3_LOWER];
-  if (dow >= 0 && dow <= 4) return {...sched[dow], warmup, phase};
-  return {type:"rest", label: dow===5 ? "Saturday — Rest & Recover" : "Sunday — Rest & Recover", phase};
+  if (phase===1) {
+    if (dow===3||dow===6) return {...PH1_UPPER,warmup,phase};
+    if (dow===4||dow===0) return {...PH1_LOWER,warmup,phase};
+    return {type:"rest",label:"Rest Day — Active Recovery",phase};
+  }
+  if (phase===2) {
+    if (dow===3) return {...PH2_PUSH,warmup,phase};
+    if (dow===4) return {...PH2_PULL,warmup,phase};
+    if (dow===5) return {...PH2_LEGS,warmup,phase};
+    if (dow===6) return {...PH2_PUSH,warmup,phase};
+    if (dow===0) return {...PH2_PULL,warmup,phase};
+    return {type:"rest",label:"Rest Day — Active Recovery",phase};
+  }
+  if (dow===3) return {...PH3_PUSH,warmup,phase};
+  if (dow===4) return {...PH3_PULL,warmup,phase};
+  if (dow===5) return {...PH3_LEGS,warmup,phase};
+  if (dow===6) return {...PH3_PUSH,warmup,phase};
+  if (dow===0) return {...PH3_PULL,warmup,phase};
+  return {type:"rest",label:"Rest Day — Active Recovery",phase};
 }
 
 let currentWeek = 0;
 let state = {};
 function loadState() {
   try {
-    const raw = localStorage.getItem('gym_recomp_v1');
+    const raw = localStorage.getItem('gym12w2');
     if (raw) { state = JSON.parse(raw); return; }
     // Try auto-backup restore
-    const backup = localStorage.getItem('gym_recomp_v1_backup');
+    const backup = localStorage.getItem('gym12w2_backup');
     if (backup) {
       const data = JSON.parse(backup);
       if (data.state) { state = data.state; saveState(); console.log('Restored from auto-backup'); return; }
@@ -1358,9 +1108,9 @@ function loadState() {
     state = {};
   } catch(e) { state = {}; }
 }
-function saveState() { try { localStorage.setItem('gym_recomp_v1', JSON.stringify(state)); autoBackup(); } catch(e) {} }
+function saveState() { try { localStorage.setItem('gym12w2', JSON.stringify(state)); autoBackup(); } catch(e) {} }
 function getDateForDay(i) { const d=new Date(START); d.setDate(d.getDate()+i); return d; }
-function formatDate(d) { return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+', '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate(); }
+function formatDate(d) { return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+', '+['Jan','Feb','Mar','Apr','May'][d.getMonth()-1]+' '+d.getDate(); }
 function isToday(d) { const n=new Date(); return d.getFullYear()===n.getFullYear()&&d.getMonth()===n.getMonth()&&d.getDate()===n.getDate(); }
 function getTodayWeek() { const diff=Math.floor((new Date()-START)/(864e5)); return diff<0?0:diff>=84?11:Math.floor(diff/7); }
 
@@ -1372,7 +1122,7 @@ function renderWeek() {
   document.getElementById('weekDates').textContent=`${formatDate(d1)} – ${formatDate(d2)}`;
   const phase=currentWeek<4?1:currentWeek<8?2:3;
   const badge=document.getElementById('phaseBadge');
-  badge.textContent=`Phase ${phase}`+(phase===1?' · Foundation':phase===2?' · Hypertrophy':' · Strength + Cut');
+  badge.textContent=`Phase ${phase}`+(phase===1?' · Foundation':phase===2?' · Hypertrophy':' · Strength');
   badge.className=`phase-badge ph${phase}`;
   document.getElementById('prevBtn').disabled=currentWeek===0;
   document.getElementById('nextBtn').disabled=currentWeek===11;
@@ -1469,275 +1219,9 @@ function switchTab(id){
   document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   const btns = document.querySelectorAll('.tab-btn');
-  const map = {workout:0, targets:1, nutrition:2, recovery:3, guide:4, data:5};
+  const map = {workout:0, nutrition:1, recovery:2, guide:3, data:4};
   if(map[id]!==undefined) btns[map[id]].classList.add('active');
   if(id==='data') renderDataTab();
-  if(id==='targets') renderTargets();
-}
-
-// ==================== TARGETS / METRICS ====================
-const TARGETS_KEY = 'gym_recomp_v1_targets';
-function loadTargets() {
-  try { return JSON.parse(localStorage.getItem(TARGETS_KEY)) || {}; } catch(e) { return {}; }
-}
-function saveTargets(t) {
-  try { localStorage.setItem(TARGETS_KEY, JSON.stringify(t)); } catch(e) {}
-}
-function getNum(id) { const v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; }
-function setNum(id, v) { document.getElementById(id).value = (v===null||v===undefined||isNaN(v)) ? '' : v; }
-
-function saveBaseline() {
-  const t = loadTargets();
-  t.baseline = {
-    weight: getNum('b_weight'),
-    waist: getNum('b_waist'),
-    bench: { w: getNum('b_bench_w'), r: getNum('b_bench_r') },
-    squat: { w: getNum('b_squat_w'), r: getNum('b_squat_r') },
-    dead:  { w: getNum('b_dead_w'),  r: getNum('b_dead_r') },
-    pull: getNum('b_pull'),
-  };
-  saveTargets(t);
-  renderTargetsTable();
-  renderPRBars();
-}
-
-function savePRs() {
-  const t = loadTargets();
-  t.prs = {
-    bench: { w: getNum('pr_bench_w'), r: getNum('pr_bench_r') },
-    squat: { w: getNum('pr_squat_w'), r: getNum('pr_squat_r') },
-    dead:  { w: getNum('pr_dead_w'),  r: getNum('pr_dead_r') },
-    pull: getNum('pr_pull'),
-  };
-  saveTargets(t);
-  renderTargetsTable();
-  renderPRBars();
-}
-
-function saveWeekly(week, field, val) {
-  const t = loadTargets();
-  t.weekly = t.weekly || {};
-  t.weekly[week] = t.weekly[week] || {};
-  t.weekly[week][field] = val === '' ? null : parseFloat(val);
-  saveTargets(t);
-  renderTargetsTable();
-  renderWeeklyLog();
-}
-
-function togglePhoto(week) {
-  const t = loadTargets();
-  t.photos = t.photos || {};
-  t.photos[week] = !t.photos[week];
-  saveTargets(t);
-  renderPhotos();
-}
-
-function toggleMilestone(id) {
-  const t = loadTargets();
-  t.milestones = t.milestones || {};
-  t.milestones[id] = !t.milestones[id];
-  saveTargets(t);
-  renderMilestones();
-}
-
-// 1RM estimate (Epley): w * (1 + r/30)
-function est1RM(w, r) { if (!w || !r) return null; return w * (1 + r/30); }
-
-function renderTargets() {
-  const t = loadTargets();
-  const b = t.baseline || {};
-  setNum('b_weight', b.weight);
-  setNum('b_waist', b.waist);
-  setNum('b_bench_w', b.bench?.w); setNum('b_bench_r', b.bench?.r);
-  setNum('b_squat_w', b.squat?.w); setNum('b_squat_r', b.squat?.r);
-  setNum('b_dead_w', b.dead?.w);   setNum('b_dead_r', b.dead?.r);
-  setNum('b_pull', b.pull);
-  const p = t.prs || {};
-  setNum('pr_bench_w', p.bench?.w); setNum('pr_bench_r', p.bench?.r);
-  setNum('pr_squat_w', p.squat?.w); setNum('pr_squat_r', p.squat?.r);
-  setNum('pr_dead_w', p.dead?.w);   setNum('pr_dead_r', p.dead?.r);
-  setNum('pr_pull', p.pull);
-  renderTargetsTable();
-  renderWeeklyLog();
-  renderPRBars();
-  renderPhotos();
-  renderMilestones();
-}
-
-function renderTargetsTable() {
-  const t = loadTargets();
-  const b = t.baseline || {};
-  const p = t.prs || {};
-  const w = t.weekly || {};
-  // Find most recent weekly weight + waist
-  let latestWeight = null, latestWaist = null;
-  for (let i = 12; i >= 1; i--) {
-    if (w[i]?.weight != null && latestWeight === null) latestWeight = w[i].weight;
-    if (w[i]?.waist != null && latestWaist === null) latestWaist = w[i].waist;
-  }
-  const rows = [];
-
-  // Weight: -3 kg target (recomp)
-  if (b.weight != null) {
-    const tgt = +(b.weight - 3).toFixed(1);
-    const now = latestWeight;
-    const hit = now != null && now <= tgt;
-    rows.push({ m: 'Weight', start: b.weight + ' kg', goal: tgt + ' kg (−3)', now: now != null ? now + ' kg' : '—', hit });
-  } else rows.push({ m: 'Weight', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  // Waist: -5 cm
-  if (b.waist != null) {
-    const tgt = +(b.waist - 5).toFixed(1);
-    const now = latestWaist;
-    const hit = now != null && now <= tgt;
-    rows.push({ m: 'Waist', start: b.waist + ' cm', goal: tgt + ' cm (−5)', now: now != null ? now + ' cm' : '—', hit });
-  } else rows.push({ m: 'Waist', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  // Bench est 1RM: +15%
-  const bench1 = est1RM(b.bench?.w, b.bench?.r);
-  const benchN = est1RM(p.bench?.w, p.bench?.r);
-  if (bench1) {
-    const tgt = +(bench1 * 1.15).toFixed(1);
-    const hit = benchN != null && benchN >= tgt;
-    rows.push({ m: 'Bench (est 1RM)', start: Math.round(bench1)+' kg', goal: Math.round(tgt)+' kg (+15%)', now: benchN ? Math.round(benchN)+' kg' : '—', hit });
-  } else rows.push({ m: 'Bench (est 1RM)', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  // Squat est 1RM: +18%
-  const sq1 = est1RM(b.squat?.w, b.squat?.r);
-  const sqN = est1RM(p.squat?.w, p.squat?.r);
-  if (sq1) {
-    const tgt = +(sq1 * 1.18).toFixed(1);
-    const hit = sqN != null && sqN >= tgt;
-    rows.push({ m: 'Squat (est 1RM)', start: Math.round(sq1)+' kg', goal: Math.round(tgt)+' kg (+18%)', now: sqN ? Math.round(sqN)+' kg' : '—', hit });
-  } else rows.push({ m: 'Squat (est 1RM)', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  // Deadlift est 1RM: +15%
-  const dl1 = est1RM(b.dead?.w, b.dead?.r);
-  const dlN = est1RM(p.dead?.w, p.dead?.r);
-  if (dl1) {
-    const tgt = +(dl1 * 1.15).toFixed(1);
-    const hit = dlN != null && dlN >= tgt;
-    rows.push({ m: 'Deadlift (est 1RM)', start: Math.round(dl1)+' kg', goal: Math.round(tgt)+' kg (+15%)', now: dlN ? Math.round(dlN)+' kg' : '—', hit });
-  } else rows.push({ m: 'Deadlift (est 1RM)', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  // Pull-ups: +5 reps or double, whichever larger
-  if (b.pull != null) {
-    const tgt = Math.max(b.pull + 5, b.pull * 2);
-    const now = p.pull;
-    const hit = now != null && now >= tgt;
-    rows.push({ m: 'Max Pull-Ups', start: b.pull + ' reps', goal: tgt + ' reps', now: now != null ? now+' reps' : '—', hit });
-  } else rows.push({ m: 'Max Pull-Ups', start: '—', goal: 'Set baseline', now: '—', hit: false });
-
-  const table = document.getElementById('targetTable');
-  const header = table.querySelector('.target-header').outerHTML;
-  table.innerHTML = header + rows.map(r => `
-    <div class="target-row">
-      <span class="metric">${r.m}</span>
-      <span class="start">${r.start}</span>
-      <span class="goal">${r.goal}</span>
-      <span class="now">${r.now}</span>
-      <span class="check ${r.hit?'hit':'miss'}">${r.hit?'✓':'·'}</span>
-    </div>`).join('');
-}
-
-function renderWeeklyLog() {
-  const t = loadTargets();
-  const b = t.baseline || {};
-  const w = t.weekly || {};
-  const todayWeek = getTodayWeek() + 1; // 1-indexed
-  let html = '';
-  for (let i = 1; i <= 12; i++) {
-    // Sunday of week i = start + (i*7 - 1) days = day_index (i*7 - 1)
-    const sundayIdx = i * 7 - 1;
-    const sun = getDateForDay(sundayIdx);
-    const data = w[i] || {};
-    const wv = data.weight ?? '';
-    const wa = data.waist ?? '';
-    let delta = '';
-    if (data.weight != null && b.weight != null) {
-      const d = +(data.weight - b.weight).toFixed(1);
-      delta = (d > 0 ? '+' : '') + d + ' kg';
-    }
-    const lostCls = (data.weight != null && b.weight != null && data.weight < b.weight) ? 'lost' : ((data.weight != null && b.weight != null && data.weight > b.weight) ? 'gained' : '');
-    const cls = i === todayWeek ? 'today' : (i < todayWeek ? 'past' : '');
-    html += `
-      <div class="week-row ${cls}">
-        <div><div class="wlabel">W${i}</div><div class="wdate">${formatDate(sun).split(',')[1]}</div></div>
-        <input type="number" step="0.1" placeholder="kg" value="${wv}" class="${lostCls}" onchange="saveWeekly(${i},'weight',this.value)">
-        <input type="number" step="0.1" placeholder="cm" value="${wa}" onchange="saveWeekly(${i},'waist',this.value)">
-        <div class="delta">${delta}</div>
-      </div>`;
-  }
-  document.getElementById('weeklyLog').innerHTML = html;
-}
-
-function renderPRBars() {
-  const t = loadTargets();
-  const b = t.baseline || {};
-  const p = t.prs || {};
-  function bar(elId, base1, now1, mult) {
-    const el = document.getElementById(elId);
-    if (!base1) { el.innerHTML = '<div class="fill" style="width:0%"></div>'; el.setAttribute('data-label',''); return; }
-    const target = base1 * mult;
-    const gain = (now1 || base1) - base1;
-    const need = target - base1;
-    const pct = Math.max(0, Math.min(100, Math.round((gain / need) * 100)));
-    el.innerHTML = `<div class="fill" style="width:${pct}%"></div>`;
-    el.setAttribute('data-label', pct + '% to target');
-  }
-  bar('pr_bench_bar', est1RM(b.bench?.w, b.bench?.r), est1RM(p.bench?.w, p.bench?.r), 1.15);
-  bar('pr_squat_bar', est1RM(b.squat?.w, b.squat?.r), est1RM(p.squat?.w, p.squat?.r), 1.18);
-  bar('pr_dead_bar',  est1RM(b.dead?.w, b.dead?.r),   est1RM(p.dead?.w, p.dead?.r),   1.15);
-  // pull-ups: progress to baseline + 5
-  const pb = document.getElementById('pr_pull_bar');
-  if (b.pull != null) {
-    const target = Math.max(b.pull + 5, b.pull * 2);
-    const now = p.pull ?? b.pull;
-    const pct = Math.max(0, Math.min(100, Math.round(((now - b.pull) / (target - b.pull)) * 100)));
-    pb.innerHTML = `<div class="fill" style="width:${pct}%"></div>`;
-    pb.setAttribute('data-label', pct + '% to target');
-  } else { pb.innerHTML = '<div class="fill" style="width:0%"></div>'; pb.setAttribute('data-label',''); }
-}
-
-function renderPhotos() {
-  const t = loadTargets();
-  const ph = t.photos || {};
-  const weeks = [0, 2, 4, 6, 8, 10, 12];
-  document.getElementById('photoChecks').innerHTML = weeks.map(w => {
-    const done = ph[w];
-    const label = w === 0 ? 'Start' : `W${w}`;
-    return `<div class="photo-cb ${done?'done':''}" onclick="togglePhoto(${w})">
-      <div class="icon">${done?'✅':'📸'}</div>
-      <div class="lbl">${label}</div>
-    </div>`;
-  }).join('');
-  // Adjust grid to 7 cols
-  document.getElementById('photoChecks').style.gridTemplateColumns = 'repeat(7, 1fr)';
-}
-
-function renderMilestones() {
-  const t = loadTargets();
-  const m = t.milestones || {};
-  const items = [
-    { id: 'ph1', title: 'End of Phase 1 · Week 4 (Foundation)',
-      desc: 'You\'ve drilled form on every lift, hit 20/20 sessions, and built the habit.',
-      crits: '✓ 20/20 workouts · ✓ −1 kg or −1.5 cm waist · ✓ All baseline lifts logged · ✓ 2 progress photos taken' },
-    { id: 'ph2', title: 'End of Phase 2 · Week 8 (Hypertrophy)',
-      desc: 'Real visible muscle starting to show. Pump is bigger, clothes fit different.',
-      crits: '✓ 40/40 workouts · ✓ −2 to −3 kg or −3 cm waist · ✓ +8 to +10% on bench/squat/DL · ✓ Upper abs hint visible in flexed photo' },
-    { id: 'ph3', title: 'End of Phase 3 · Week 12 (Strength + Cut)',
-      desc: 'Final form: muscle visible at rest, abs cracking, lifts at lifetime best.',
-      crits: '✓ 60/60 workouts · ✓ −3 to −5 kg · ✓ Waist −5 cm · ✓ Upper 4 abs visible in good light · ✓ +15% on all main lifts' },
-  ];
-  document.getElementById('milestoneList').innerHTML = items.map(it => `
-    <div class="milestone-card ${m[it.id]?'done':''}" onclick="toggleMilestone('${it.id}')">
-      <div class="mcb">${m[it.id]?'✓':''}</div>
-      <div class="minfo">
-        <h4>${it.title}</h4>
-        <p>${it.desc}</p>
-        <div class="crits">${it.crits}</div>
-      </div>
-    </div>`).join('');
 }
 
 // ==================== TOAST ====================
@@ -1754,7 +1238,7 @@ function getBackupPayload() {
     version: 1,
     app: 'gym-plan-12w',
     exportedAt: new Date().toISOString(),
-    startDate: '2026-05-25',
+    startDate: '2026-02-06',
     state: state
   };
 }
@@ -1762,8 +1246,8 @@ function getBackupPayload() {
 function autoBackup() {
   try {
     const payload = getBackupPayload();
-    localStorage.setItem('gym_recomp_v1_backup', JSON.stringify(payload));
-    localStorage.setItem('gym_recomp_v1_backup_time', new Date().toISOString());
+    localStorage.setItem('gym12w2_backup', JSON.stringify(payload));
+    localStorage.setItem('gym12w2_backup_time', new Date().toISOString());
   } catch(e) {}
 }
 
@@ -1882,7 +1366,7 @@ function renderDataTab() {
   `;
 
   // Last backup info
-  const backupTime = localStorage.getItem('gym_recomp_v1_backup_time');
+  const backupTime = localStorage.getItem('gym12w2_backup_time');
   const backupInfo = document.getElementById('lastBackupInfo');
   if (backupTime) {
     const d = new Date(backupTime);
